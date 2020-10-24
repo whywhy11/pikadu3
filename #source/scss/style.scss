@@ -1,0 +1,478 @@
+//<МИКСИНЫ>===============================================================================================
+@mixin anim($time,$delay){-webkit-transition: all $time ease $delay;-moz-transition: all $time ease $delay;-ms-transition: all $time ease $delay;-o-transition: all $time ease $delay;transition: all $time ease $delay;}
+@mixin anim_cubic($time, $delay) {-webkit-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-moz-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-ms-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;-o-transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;transition:all $time cubic-bezier(0.68,-0.55,0.265,1.55) $delay;}
+@mixin rotate($deg){-moz-transform: rotate($deg);-ms-transform: rotate($deg);-webkit-transform: rotate($deg);-o-transform: rotate($deg);transform: rotate($deg);}
+@mixin scale($num){-moz-transform: scale($num);-ms-transform: scale($num);-webkit-transform: scale($num);-o-transform: scale($num);transform: scale($num);}
+@mixin skew($num){-webkit-transform: skewX($num);-moz-transform: skewX($num);-ms-transform: skewX($num);-o-transform: skewX($num);transform: skewX($num);}
+@mixin cnt($h){display: flex;flex-direction: column;height: $h;text-align: center;align-items: stretch;justify-content: center;}
+@mixin tr($x,$y,$z){transform: translate3d($x, $y, $z);};
+@mixin flexbox() {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;font-size: 0;}
+@mixin flexorder($val){-webkit-box-ordinal-group: $val;-moz-box-ordinal-group: $val;-ms-flex-order: $val;-webkit-order: $val;order: $val;}
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@font-face {
+	font-family: "SFProDisplay-Regular";
+	src: local("SFProDisplay-Regular"),
+		local("SFProDisplay-Regular"),
+		url("/fonts/SFProDisplay-Regular.woff") format("woff"),
+		url("/fonts/SFProDisplay-Regular.woff2") format("woff2");
+	font-weight: normal;
+}
+@font-face {
+	font-family: "SFProDisplay-Semibold";
+	src: local("SFProDisplay-Semibold"),
+	local("SFProDisplay-Semibold"),
+	url("/fonts/SFProDisplay-Semibold.woff") format("woff"),
+	url("/fonts/SFProDisplay-Semibold.woff2") format("woff2");
+	font-weight: bold;
+}
+//</Подключаем шрифты>=======================================================================================
+
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily:"SFProDisplay-Regular";
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth:320px;
+$mw:1200;
+$md1:$mw+12;
+$md2:992.98;
+$md3:767.98;
+$md4:479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+*{padding: 0px;margin: 0px;border: 0px;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+aside,nav,footer,header,section{display: block;}
+html,body{height: 100%;margin: 0;padding: 0;min-width: $minwidth;position: relative;width: 100%;color: #000;}
+body{background-color: #F5F5F5; font-size: 100%;line-height: 1;font-size: 14px;font-family: $fontfamily;-ms-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;
+	&.lock{overflow: hidden;
+		@media (max-width:$md3+px){
+			width: 100%;
+			position: fixed;
+			overflow: hidden;
+		}
+	}
+}
+input,button,textarea{font-family: $fontfamily;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-weight: inherit;font-size: inherit;}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper{width: 100%;min-height: 100%;overflow: hidden;
+	&.loaded{}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container{max-width:$mw+px;margin: 0 auto;width: 100%;
+	@media (max-width:$md1+px){max-width: 990px;}
+	@media (max-width:$md2+px){max-width: 990px;}
+	@media (max-width:$md3+px){max-width: none;padding:0 10px;}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+@import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+
+//====================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+
+.content {
+	max-width: 1200px;
+	width: 90%;
+	margin: 97px auto 60px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	
+}
+.posts {
+	width: 67%;
+	@media (max-width:$md2+px){
+		width: 100%;
+	}
+}
+.post-body {
+	padding: 35px 35px 0 35px;
+}
+.post {
+	background-color: #fff;
+	border: 1px solid #E8E8E8;
+	margin: 0px 0px 30px 0px;
+}
+.post-title {
+	margin: 0 0 19px 0;
+	font-family: "SFProDisplay-Semibold";
+	font-size: 16px;
+	line-height: 24px;
+}
+.post-text {
+	color: #262626;
+	line-height: 22px;
+	margin: 0px 0px 30px 0px;
+}
+.tags {
+	margin: 0px 0px 22px 0px;
+}
+.tag {
+	color: #BFBFBF;
+	line-height: 22px;
+	margin: 0px 10px 0px 0px;
+}
+.post-footer {
+	background: #FAFAFA;
+	border-top: 1px solid #E8E8E8;
+	display: flex;
+	justify-content: space-between;
+	padding: 13px 35px;
+	@media (max-width:576px){
+		flex-direction: column;
+	}
+}
+
+.post-button .icon {
+	fill: #8c8c8c;
+}
+.icon-like, 
+.icon-comment {
+	@include anim(0.3s,0s);
+	margin: 0px 6px 0px 0px;
+	&:hover {
+		fill: #ffa500; 
+	}
+}
+
+.post-buttons {
+	display: flex;
+	align-items: center;
+	
+}
+.post-button {
+	background-color: transparent;
+	border: none;
+	color: #8c8c8c;
+	display: flex;
+	align-items: center;
+	line-height: 22px;
+	margin: 0px 19px 0px 0px;
+	cursor: pointer;
+}
+.likes {
+	@include anim(0.3s,0s);
+	&:hover {
+		color: #ffa500; 
+	}
+}
+.icon {
+}
+.likes-counter {
+}
+.comments {
+	@include anim(0.3s,0s);
+	&:hover {
+		color: #ffa500; 
+	}
+}
+.comments-counter {
+}
+.save {
+	
+}
+.share {
+}
+.icon-save,
+.icon-share{
+	@include anim(0.3s,0s);
+	&:hover {
+		fill: #ffa500; 
+	}
+}
+.post-author {
+	display: flex;
+	align-items: center;
+	text-align: right;
+	@media (max-width:576px){
+		margin: 15px 0px 0px 0px;
+	}
+}
+.author-about {
+	@media (max-width:576px){
+		order: 2;
+		text-align-last: left;
+	}
+}
+.author-username {
+	display: block;
+	color: #8C8C8C;
+	font-size: 12px;
+	line-height: 20px;
+	@include anim(0.3s,0s);
+	&:hover {
+		color: #ffa500; 
+	}
+}
+.post-time {
+	color: #BFBFBF;
+	font-size: 12px;
+	line-height: 20px;
+}
+.author-link {
+}
+.author-avatar {
+	width: 34px;
+	height: 34px;
+	margin: 0px 0px 0px 9px;
+	border-radius: 4px;
+	@include anim(0.3s,0s);
+	@media (max-width:576px){
+		margin-left: 0;
+		margin: 0px 10px 0px 0px;
+	}
+	&:hover {
+		transform: scale(1.2)
+	}
+}
+.aside {
+}
+.sidebar {
+	width: 31%;
+	@media (max-width:$md2+px){
+		position: fixed;
+		top: 64px;
+		right: 0;
+		bottom: 0;
+		height: calc(100% - 64px);
+		max-width: 320px;
+		width: 100%;
+		background-color: #fff;
+		padding: 30px;
+		box-shadow: 1px 1px 10px rgba(0,0,0,0.15);
+		transform: translateX(100%);
+		@include anim(0.3s,0s);
+		overflow-y: auto;
+		z-index: 101;
+	}
+}
+.sidebar.visible {
+	@media (max-width:$md2+px){
+		transform: translateX(0);
+		@include anim(0.3s,0s);
+	}
+}
+.user {
+	background: #FAFAFA;
+	border: 1px solid #E8E8E8;
+	padding: 15px 25px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.user-avatar {
+	border-radius: 50%;
+	margin: 0px 17px 0px 0px;
+	@include anim(0.3s,0s);
+	&:hover {
+		transform: scale(1.2)
+	}
+}
+.user-info {
+	display: flex;
+	align-items: center;
+}
+.user-name {
+	font-family: "SFProDisplay-Semibold";
+	font-size: 16px;
+	line-height: 24px;
+	color: #595959;
+}
+.icon-exit {
+	width: 20px;
+	height: 20px;
+	fill: #000;
+}
+.sidebar-nav {
+	background-color: #fff;
+}
+.sidebar-menu {
+	border: 1px solid #E8E8E8;
+	border-top: none;
+}
+.sidebar-menu-item {
+}
+.sidebar-menu-link {
+	color: #595959;
+	line-height: 22px;
+	padding: 16px 48px;
+	display: inline-block;
+	width: 100%;
+	background-color: #fff;
+}
+.sidebar-menu-link:hover {
+	background: #FFFBE6;
+	color: #FAAD14;;
+	@include anim(0.3s,0s);
+}
+.sidebar-menu-link.active {
+	background: #FFFBE6;
+	border-right: 3px solid #FAAD14;;
+}
+.button {
+	background: #FAAD14;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 16px;
+	line-height: 24px;
+	padding: 13px;
+}
+.button-new-post {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	margin: 20px 0px 0px 0px;
+}
+.icon {
+}
+.icon-fire {
+	fill: #fff;
+	width: 11px;
+	height: 13px;
+	margin: 0px 10px 0px 0px;
+}
+.card {
+	background: #FFFFFF;
+	border: 1px solid #E8E8E8;
+	margin: 20px 0px 0px 0px;
+}
+.card-header {
+	background: #FAFAFA;
+	border-bottom: 1px solid #E8E8E8;
+	padding: 23px 25px;
+}
+.card-title {
+	font-family: "SFProDisplay-Semibold";
+	font-size: 16px;
+	line-height: 24px;
+	color: #595959;
+}
+.card-body {
+	padding: 22px 40px 30px 25px;
+}
+.card-body-title {
+	font-family: "SFProDisplay-Semibold";
+	font-size: 16px;
+	line-height: 24px;
+	color: #D48806;
+}
+
+.card-text {
+	line-height: 22px;
+	color: #262626;
+	margin: 10px 0px 0px 0px;
+}
+.promo {
+	background: #fff url("/img/promo.jpg") no-repeat center / cover;
+	width: 100%;
+	height: 260px;
+	border: 1px solid #E8E8E8;
+	margin: 20px 0px 0px 0px;
+	position: relative;
+	display: block;
+}
+.promo:before {
+	content: "Реклама";
+	position: absolute;
+	right: 0;
+	top: 0;
+	background: #C4C4C4;
+	padding: 0px 26px;
+	font-size: 12px;
+	line-height: 20px;
+	color: #fff;
+}
+
+.add-post {
+	display: flex;
+	flex-direction: column;
+}
+.add-post .button-outline {
+	margin-right: 1%;
+	@media (max-width:676px) {
+		margin-right: 0;
+		margin-top: 10px;
+	}
+}
+
+.add-title, .add-text {
+	background: #FFFFFF;
+	border: 1px solid #E8E8E8;
+	padding: 23px 30px;	
+	margin: 0px 0px 16px 0px;
+}
+.add-text {
+	min-height: 362px;
+}
+.button {
+}
+.add-button {
+	width: 100%;
+	max-width: 370px;
+	margin-right: 2%;
+	@media (max-width:576px) {
+		width: 100%;
+	}
+	@media (max-width:676px){
+		width: 100%;
+		max-width: 100%;
+	}
+}
+.button-outline {
+	background-color: #fff;
+	border-radius: 4px;
+	border: 1px solid #FFC53D;
+	color: #FFC53D;
+	padding-left: 16px;
+	padding-right: 16px;
+	cursor: pointer;
+}
+.button-outline .icon {
+	width: 14px;
+	height: 11px;
+	fill: #FFC53D;
+	margin: 0px 10px 0px 0px;
+}
+.add-buttons {
+	@media (max-width:676px) {
+		display: flex;
+		flex-direction: column;
+	}
+}

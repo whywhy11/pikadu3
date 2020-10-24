@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<title>Pikadu - новый пост</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<header class="header">
+	<div class="header-wrapper">
+		<a href="/" class="header-logo">
+			<img class="header-logo-image" src="/img/logo.svg" alt="logo: Pikadu" />
+		</a>
+		<nav class="header-nav">
+			<ul class="header-menu">
+				<li class="header-menu-item"><a href="#" class="header-menu-link">Свежее</a></li>
+				<li class="header-menu-item"><a href="#" class="header-menu-link">Лучшее</a></li>
+				<li class="header-menu-item"><a href="#" class="header-menu-link">Горячее</a></li>
+				<li class="header-menu-item"><a href="#" class="header-menu-link">Подписки</a></li>
+			</ul>
+
+		</nav>
+		<!-- /.header-nav -->
+		<div class="input-group search">
+			<input type="search" class="seacrh-input" placeholder="Поиск по сайту">
+			<button class="search-button">
+				<img src="/img/search.svg" alt="" class="search-icon">
+			</button>
+		</div>
+		<!-- /.input-group -->
+		<a href="#" class="menu-toggle" id="menu-toggle">
+			<span></span>
+			<span></span>
+			<span></span>
+		</a>
+	</div>
+	<!-- /.header-wrapper -->
+</header>
+
+<!-- 
+				html меню с иконкой бургера
+				<div class="header__menu menu">
+					<div class="menu__icon icon-menu">
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+					<nav class="menu__body">
+						<ul class="menu__list">
+							<li><a href="" class="menu__link"></a></li>
+						</ul>
+					</nav>
+				</div>
+			-->	<div class="content">
+		<main class="posts">
+			<form action="#" class="add-post">
+				<input type="text" name="post-title" class="add-title" placeholder="Заголовок поста">
+				<textarea name="post-text" id="text" class="add-text" placeholder="Текст вашего поста"></textarea>
+				<div class="add-buttons">
+					<button type="submit" class="button add-button">
+						<svg class="icon icon-fire">
+							<use xlink:href="img/icons.svg#fire"></use>
+						</svg>
+						Опубликовать пост
+					</button>
+					<button class="button button-outline">
+						<svg class="icon icon-video">
+							<use xlink:href="img/icons.svg#video"></use>
+						</svg>Видео
+					</button>
+					<button class="button button-outline">
+						<svg class="icon icon-photo">
+							<use xlink:href="img/icons.svg#photo"></use>
+						</svg>Фото
+					</button>
+				</div>
+			</form>
+		</main>
+		<!-- /.posts -->
+		<aside class="sidebar">
+			<div class="user">
+				<a href="#" class="user-info">
+					<img width="40" height="40" src="img/avatar.jpg" alt="photo" class="user-avatar">
+					<span class="user-name">alexeypismenny</span>
+				</a>
+				<!-- /.user-info -->
+				<a href="" class="exit">
+					<svg class="icon icon-exit">
+						<use xlink:href="img/icons.svg#exit"></use>
+					</svg>
+				</a>
+				<!-- /.exit -->
+			</div>
+			<!-- /.user -->
+			<nav class="sidebar-nav">
+				<ul class="sidebar-menu">
+					<li class="sidebar-menu-item">
+						<a href="#" class="sidebar-menu-link">Ответы</a>
+					</li>
+					<li class="sidebar-menu-item">
+						<a href="#" class="sidebar-menu-link active">Комментарии</a>
+					</li>
+					<li class="sidebar-menu-item">
+						<a href="#" class="sidebar-menu-link">Оценки</a>
+					</li>
+					<li class="sidebar-menu-item">
+						<a href="#" class="sidebar-menu-link">Сохранённое</a>
+					</li>
+					<li class="sidebar-menu-item">
+						<a href="#" class="sidebar-menu-link">Подписки</a>
+					</li>
+					<li class="sidebar-menu-item">
+						<a href="#" class="sidebar-menu-link">Заметки</a>
+					</li>
+					<li class="sidebar-menu-item">
+						<a href="#" class="sidebar-menu-link">Игнор-лист</a>
+					</li>
+				</ul>
+			</nav>
+			<a href="#" class="promo"></a>
+		</aside>
+		<!-- /.aside sidebar -->
+	</div>
+<footer class="footer">
+	<div class='container'>
+		<div class="footer__row">
+			
+		</div>
+	</div>
+</footer>
+<div class="popup">
+	<div class="popup-table table">
+		<div class="cell">
+			<div class="popup-content">
+				<div class="popup-close"></div>
+				<div class="popup__title"></div>
+				<div class="popup__txt"></div>
+				<form action="#" class="popup-form form">
+					<div class="form-input">
+						<input autocomplete="off" type="text" name="form[]" data-value="" class="input" />
+					</div>
+					<div class="form-input">
+						<input autocomplete="off" type="text" name="form[]" data-value="" class="input req email" />
+					</div>
+					<div class="form-input">
+						<input autocomplete="off" type="text" name="form[]" data-value="" class="input req" />
+					</div>
+					<div class="form-button">
+						<button type="submit" class="form__btn btn fw"></button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="popup popup-video">
+	<div class="popup-table table">
+		<div class="cell">
+			<div class="popup-close"></div>
+			<div class="popup-video__value video"></div>
+		</div>
+	</div>
+</div><script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-migrate-3.0.1.min.js"></script> -->
+<script src="js/vendors.js"></script>
+<script src="js/main.js"></script>
+<script src="js/custom.js"></script></body>
+
+</html>
